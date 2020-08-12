@@ -1,0 +1,1090 @@
+Make(delphi)
+ver(4.05 build 186)
+Add(Label,10418347,602,98)
+{
+ Top=37
+ Width=300
+ Height=85
+ Font=[Century Gothic,50,0,0,204]
+ Hint="Двойной клик откроет страницу статистики"
+ HintManager="Date"
+ Caption="update..."
+ AutoSize=1
+ Alignment=2
+ Point(onDblClick)
+ link(onDblClick,8625012:doData,[(712,111)(712,104)])
+}
+Add(MainForm,2953706,238,7)
+{
+ Width=300
+ Height=365
+ Visible=1
+ Name="Main"
+ Caption="Vodafone Traffic Check"
+ BorderStyle=0
+ DragForm=0
+ Position=1
+ Point(doVisible)
+ Point(onClose)
+ link(onCreate,16100399:doCreateMutex,[(331,27)(331,20)])
+ link(onClose,16100399:doReleaseMutex,[])
+}
+Add(Hub,5876417,462,112)
+{
+ OutCount=3
+ link(onEvent1,9555336:doWork1,[(508,118)(508,48)])
+ link(onEvent2,15685225:doWork1,[(508,125)(508,146)])
+ link(onEvent3,14998219:doWork1,[(508,132)(508,188)])
+}
+Add(WinExec,12918173,854,98)
+{
+}
+Add(ButtonRush,1708772,49,7)
+{
+ Left=270
+ Top=-1
+ Width=30
+ Height=15
+ Hint="Закрыть"
+ ColorFrom=15780518
+ ColorTo=-16777201
+ GradientStyle=1
+ BorderWidth=0
+ Caption="X"
+ Glyphs=[]
+ MakeTrans(Hint)
+ link(onClick,8205278:doEvent1,[(142,13)(142,20)])
+}
+Add(Label,5672305,602,182)
+{
+ Left=6
+ Top=145
+ Width=289
+ Height=50
+ Font=[Century Gothic,14,0,0,204]
+ HintManager="Date"
+ Caption="update..."
+ AutoSize=1
+ Alignment=2
+ Point(doHint)
+}
+Add(MultiElement,9555336,567,42)
+{
+ @Hint=#36:Показывает, сколько осталось трафика|
+ link(onEvent1,10418347:doText,[(604,48)(604,104)])
+ link(onEvent2,5293927:doPosition,[(643,55)(643,104)])
+ link(onEvent3,5293927:doCaption,[(643,62)(643,111)])
+ link(Data1,9753065:Var2,[(573,23)(548,23)(548,99)(545,99)])
+ link(onEvent4,10433839:doHint,[(604,69)(604,241)(534,241)(534,356)])
+ link(onEvent5,10433839:doShowBallonTip,[(604,76)(604,209)(534,209)(534,349)])
+}
+BEGIN_SDK
+  Add(EditMulti,13969368,21,21)
+  {
+   EventCount=5
+   WorkCount=2
+   DataCount=1
+   Width=510
+   Height=522
+   link(doWork1,5312411:doEvent1,[(42,27)(42,111)])
+   link(doWork2,9003760:doTimer,[(84,34)(84,377)])
+  }
+  Add(BlockFind,12372989,140,105)
+  {
+   IncludeBlock=1
+   StartBlock="<div class="volume">"
+   EndBlock="</strong>"
+   link(onSearch,8247567:doSplit,[])
+   link(Text,15142052:Var3,[(146,61)])
+  }
+  Add(StrPart,8247567,189,105)
+  {
+   Char=">"
+   link(onSplit,7673691:doSplit,[])
+  }
+  Add(StrPart,7673691,245,105)
+  {
+   Char=">"
+   link(onSplit,16470404:doEvent1,[])
+  }
+  Add(Hub,5312411,63,105)
+  {
+   OutCount=3
+   link(onEvent1,12372989:doSearch,[])
+   link(onEvent2,4766897:doSearch,[(109,118)(109,181)])
+   link(onEvent3,5049111:doEvent1,[(161,125)(161,160)])
+  }
+  Add(BlockFind,4766897,140,175)
+  {
+   IncludeBlock=1
+   StartBlock="Sie haben "
+   EndBlock="%"
+   link(onSearch,952262:doData,[])
+   link(Text,15142052:Var2,[(146,121)(118,121)])
+  }
+  Add(Math,5476673,315,154)
+  {
+   OpType=1
+   Op1=100
+   link(onResult,13969368:onEvent2,[(411,160)(411,34)])
+   link(Op2,15278813:Var3,[(328,142)(307,142)(307,215)])
+  }
+  Add(EventFromData,952262,203,175)
+  {
+  }
+  Add(StrCatDelim,407270,259,203)
+  {
+   Str1="Осталось "
+   Str2="% трафика"
+   Point(Delimiter)
+   MakeTrans(Str1)
+   MakeTrans(Str2)
+   link(onStrCatDlm,6884034:doEvent1,[])
+   link(Delimiter,5476673:Result,[(279,191)(321,191)])
+  }
+  Add(Hub,5049111,245,154)
+  {
+   OutCount=4
+   link(onEvent1,5476673:doOperation,[])
+   link(onEvent2,407270:doStrCatDlm,[(271,167)(271,185)(240,185)(240,209)])
+   link(onEvent3,10148001:doString,[(277,174)(277,328)])
+  }
+  Add(GetDataEx,15142052,112,56)
+  {
+   Angle=3
+   link(Data,13969368:Data1,[(27,61)])
+  }
+  Add(Hub,6884034,364,203)
+  {
+   link(onEvent1,13969368:onEvent3,[(411,209)(411,41)])
+   link(onEvent2,9695285:doSplit,[(390,216)(390,240)(366,240)(366,265)])
+  }
+  Add(StrPart,9695285,378,259)
+  {
+   Char="%"
+   Point(Left)
+   Point(Right)
+  }
+  Add(FormatStr,10148001,385,322)
+  {
+   DataCount=4
+   Mask="%1% (%2)%3"
+   link(onFString,13969368:onEvent4,[(428,328)(428,48)])
+   link(Str1,105099:Var2,[])
+   link(Str2,13891931:Var2,[])
+   link(Str3,8146559:Var2,[])
+  }
+  Add(Hub,16470404,308,105)
+  {
+   link(onEvent1,13969368:onEvent1,[(376,111)(376,27)])
+   link(onEvent2,3248102:doData,[(385,118)(385,132)])
+  }
+  Add(EventFromData,3248102,448,126)
+  {
+  }
+  Add(FormatStr,2990651,385,371)
+  {
+   DataCount=3
+   Mask="%1% (%2)%3!"
+   link(onFString,13969368:onEvent5,[(474,377)(474,55)])
+   link(Str1,105099:Var1,[(391,339)(382,339)(382,306)])
+   link(Str2,13891931:Var1,[(398,342)(389,342)(389,313)])
+   link(Str3,8146559:Var1,[(405,342)(396,342)(396,313)])
+  }
+  Add(If_else,12233365,238,371)
+  {
+   Op2=Integer(41)
+   link(onTrue,2990651:doString,[])
+   link(Op1,15278813:Var2,[(244,295)(223,295)])
+  }
+  Add(GetDataEx,105099,385,301)
+  {
+   link(Data,9695285:Left,[(391,306)(384,306)])
+  }
+  Add(GetDataEx,13891931,392,308)
+  {
+   link(Data,3248102:GetData,[(398,240)(454,240)])
+  }
+  Add(GetDataEx,8146559,399,308)
+  {
+   link(Data,9695285:Right,[(405,306)(391,306)])
+  }
+  Add(GetDataEx,15278813,217,210)
+  {
+   Angle=3
+   link(Data,952262:GetData,[(209,215)])
+  }
+  Add(Timer,9003760,147,371)
+  {
+   Interval=10000
+   Enable=1
+   link(onTimer,12233365:doCompare,[])
+  }
+END_SDK
+Add(MultiElement,15685225,539,140)
+{
+ @Hint=#42:Показывает сколько всего трафика по тарифу|
+ link(onEvent1,14194000:doText,[])
+ link(Data1,9838752:Var3,[(545,115)])
+}
+BEGIN_SDK
+  Add(EditMulti,10417201,21,21)
+  {
+   EventCount=1
+   WorkCount=1
+   DataCount=1
+   Width=482
+   Height=347
+   link(doWork1,8779986:doEvent1,[(73,27)(73,48)])
+  }
+  Add(BlockFind,6905794,224,252)
+  {
+   IncludeBlock=1
+   StartBlock="<div class="fl">Meine Bandbreite wird begrenzt bei:</div>"
+   EndBlock="</div>"
+   link(onSearch,996820:doSplit,[])
+   link(Text,10417201:Data1,[(230,136)(27,136)])
+  }
+  Add(StrPart,996820,273,252)
+  {
+   Char=">"
+   link(onSplit,12336893:doData,[])
+  }
+  Add(Hub,8779986,126,42)
+  {
+   link(onEvent1,6905794:doSearch,[(182,48)(182,258)])
+   link(onEvent2,14357551:doStrCat,[(262,55)(262,258)])
+  }
+  Add(EventFromData,12336893,329,252)
+  {
+  }
+  Add(StrCat,14357551,385,252)
+  {
+   Str1="из "
+   MakeTrans(Str1)
+   link(onStrCat,10417201:onEvent1,[(460,258)(460,27)])
+   link(Str2,12336893:GetData,[(398,240)(366,240)(366,296)(335,296)])
+  }
+END_SDK
+Add(MultiElement,14998219,539,182)
+{
+ @Hint=#30:Показывает дату начала расчета|0:|46:Вторая точка показывает последний день расчета|
+ link(onEvent1,5672305:doText,[])
+ link(onEvent2,5672305:doHint,[])
+ link(Data1,9753065:Var1,[(545,153)(536,153)(536,89)])
+}
+BEGIN_SDK
+  Add(EditMulti,6542411,7,14)
+  {
+   EventCount=2
+   WorkCount=1
+   DataCount=1
+   Width=601
+   Height=431
+   link(doWork1,4598027:doEvent1,[(14,20)(14,55)])
+  }
+  Add(Hub,4598027,21,49)
+  {
+   OutCount=5
+   link(onEvent1,3319074:doSearch,[(41,55)(41,103)])
+   link(onEvent2,2417433:doSearch,[(41,62)(41,166)])
+   link(onEvent3,4236788:doStrCat,[(280,69)(280,166)])
+   link(onEvent4,10861714:doStrCat,[(364,76)(364,159)])
+   link(onEvent5,5380682:doStrCat,[(245,83)(245,314)])
+  }
+  Add(BlockFind,3319074,48,97)
+  {
+   IncludeBlock=1
+   StartBlock="<div class="fl">Meine verbrauchten GB:</div>"
+   EndBlock="</div>"
+   link(onSearch,13380025:doSplit,[])
+   link(Text,12426617:Var2,[(54,67)(27,67)])
+  }
+  Add(StrPart,13380025,97,97)
+  {
+   Char=">"
+   link(onSplit,4573533:doData,[])
+  }
+  Add(EventFromData,4573533,153,97)
+  {
+  }
+  Add(BlockFind,2417433,48,160)
+  {
+   IncludeBlock=1
+   StartBlock="<div class="fl">Rechnungszeitraum:</div>"
+   EndBlock="</div>"
+   link(onSearch,13327704:doSplit,[])
+   link(Text,12426617:Var3,[(54,33)])
+  }
+  Add(StrPart,13327704,97,160)
+  {
+   Char=">"
+   link(onSplit,11423617:doSplit,[])
+  }
+  Add(StrPart,11423617,153,160)
+  {
+   Char="-"
+   link(onSplit,6599294:doEvent1,[(197,166)(197,194)(134,194)(134,222)])
+   link(onPart,14317565:doData,[(199,173)(199,166)])
+  }
+  Add(EventFromData,14317565,209,160)
+  {
+  }
+  Add(StrPart,2020541,202,216)
+  {
+   Char="."
+   link(onSplit,9293856:doSplit,[])
+  }
+  Add(StrPart,9293856,244,216)
+  {
+   Char="."
+   link(onSplit,14099267:doData,[])
+  }
+  Add(EventFromData,14099267,293,216)
+  {
+  }
+  Add(StrCat,4236788,286,160)
+  {
+   link(Str1,14317565:GetData,[(292,148)(256,148)(256,206)(215,206)])
+   link(Str2,14099267:GetData,[(299,148)(287,148)(287,260)(299,260)])
+  }
+  Add(Hub,6599294,146,216)
+  {
+   link(onEvent1,5472665:doData,[(164,222)(164,286)])
+   link(onEvent2,2020541:doSplit,[(181,229)(181,222)])
+  }
+  Add(StrCat,10861714,454,153)
+  {
+   Str1="Израсходовано с "
+   MakeTrans(Str1)
+   link(onStrCat,11171821:doStrCatDlm,[(498,159)(498,121)(463,121)(463,82)])
+   link(Str2,4236788:Result,[(467,141)(379,141)(379,204)(292,204)])
+  }
+  Add(StrCatDelim,11171821,475,76)
+  {
+   Delimiter=" "
+   Point(Delimiter)
+   link(onStrCatDlm,6542411:onEvent1,[(603,82)(603,20)])
+   link(Str1,10861714:Result,[(481,64)(471,64)(471,197)(460,197)])
+   link(Str2,4573533:GetData,[(488,64)(324,64)(324,141)(159,141)])
+  }
+  Add(GetDataEx,12426617,21,28)
+  {
+   link(Data,6542411:Data1,[(27,21)(13,21)])
+  }
+  Add(EventFromData,5472665,168,280)
+  {
+  }
+  Add(StrCat,5380682,455,308)
+  {
+   Str1="Последний расчетный день "
+   link(onStrCat,6542411:onEvent2,[(547,314)(547,27)])
+   link(Str2,5472665:GetData,[(468,296)(321,296)(321,324)(174,324)])
+  }
+END_SDK
+Add(GetDataEx,8116485,672,77)
+{
+ link(Data,14416001:Var1,[(678,69)(790,69)])
+}
+Add(GetDataEx,9753065,539,84)
+{
+ link(Data,8116485:Var2,[(545,78)(611,78)(611,92)(678,92)])
+}
+Add(Label,14194000,602,140)
+{
+ Left=44
+ Top=120
+ Width=213
+ Height=22
+ Font=[Century Gothic,14,0,0,204]
+ Caption="update..."
+ AutoSize=1
+ Alignment=2
+}
+Add(ButtonRush,15288845,84,238)
+{
+ Left=240
+ Top=-1
+ Width=30
+ Height=15
+ Hint="Настройки"
+ ColorFrom=15780518
+ ColorTo=-16777201
+ GradientStyle=1
+ BorderWidth=0
+ Caption="H"
+ Glyphs=[]
+ MakeTrans(Hint)
+ MakeTrans(Caption)
+ link(onClick,4532465:doEvent1,[(128,244)(128,286)])
+}
+Add(TrayIcon,10433839,546,315)
+{
+ ShowWORemoveIcon=0
+ Title="Мало трафика!"
+ Point(doAddTrayIcon)
+ Point(doShowBallonTip)
+ Point(onMouseMove)
+ Point(doHint)
+ Point(onBallonShow)
+ Point(onBallonUserClick)
+ link(onClick,4627300:doEvent,[(590,321)(590,370)])
+}
+Add(IconGraph,7289260,700,280)
+{
+ Sensit=0
+ Style=2
+ ChannelsBar=0
+ link(onIconGraph,10433839:doIcon,[(744,286)(744,310)(534,310)(534,335)])
+}
+Add(DoData,2092089,651,280)
+{
+ link(onEventData,7289260:doPosition1,[])
+ link(Data,12367326:Var,[])
+}
+Add(Timer,8579846,602,280)
+{
+ link(onTimer,2092089:doData,[])
+}
+Add(IndexToChanel,4627300,602,364)
+{
+ Count=3
+ link(onEvent2,959725:doPopupHere,[(639,377)(639,370)])
+}
+Add(PopupMenu,959725,651,364)
+{
+ Menu=#4:Show|8:Settings|1:-|4:Exit|
+ Point(Bitmaps)
+ MakeExt(Menu,,Menu)
+ link(onClick,3526470:doEvent,[])
+ link(Bitmaps,8624481:Array,[])
+}
+Add(IndexToChanel,3526470,700,364)
+{
+ Count=4
+ link(onEvent1,13562553:In,[(751,370)(751,363)])
+ link(onEvent2,8444411:In,[])
+ link(onEvent4,12422480:In,[])
+}
+Add(Hub,8205278,196,14)
+{
+ InCount=3
+ OutCount=1
+ link(onEvent1,2953706:doClose,[(224,20)(224,34)])
+}
+Add(Hub,9933516,56,126)
+{
+ OutCount=4
+ link(onEvent1,7663049:In,[(80,132)(80,111)])
+ link(onEvent2,393622:In,[(80,139)(80,132)])
+ link(onEvent3,6565397:In,[(84,146)(84,153)])
+}
+Add(ChildFormEx,2296218,217,280)
+{
+ link(Timer_Time,11815264:doInterval,[])
+ link(Slow_Mini,5511318:In,[(254,293)(254,328)])
+ link(Debug_browser,12209974:In,[(261,300)(261,307)])
+ link(URL,15146061:In,[(254,307)(254,349)])
+}
+BEGIN_SDK
+  Add(EditMultiEx,3099554,21,21)
+  {
+   WorkCount=#26:doShowModal=Показать форму|35:Read_Set=Чтение параметров из файла|
+   EventCount=#28:Timer_Time=Время для таймера|26:Slow_Mini=Запуск свернутым|31:Debug_browser=Открытие Браузера|25:URL=Адрес страницы данных|
+   Width=489
+   Height=403
+   link(doShowModal,15652966:doShowModal,[(126,27)(126,69)])
+   link(Read_Set,1215466:doEvent1,[])
+  }
+  Add(MainForm,15652966,231,35)
+  {
+   Left=35
+   Top=105
+   Width=260
+   Height=242
+   Visible=1
+   TabOrder=7
+   Caption="Настройки"
+   BorderStyle=4
+   TaskBar=1
+   Position=1
+   Point(doShowModal)
+  }
+  Add(Button,1033874,35,252)
+  {
+   Left=5
+   Top=187
+   Width=177
+   TabOrder=6
+   Name="Save_Button"
+   Caption="Применить"
+   MakeTrans(Caption)
+   link(onClick,15264678:doEvent1,[(79,258)(79,212)(51,212)(51,167)])
+  }
+  Add(ChildGroupBox,10810665,308,196)
+  {
+   @Hint=#20:Параметры обновления|
+   link(onEvent1,3099554:Timer_Time,[(362,202)(362,27)])
+   link(onEvent2,3099554:URL,[(425,209)(425,48)])
+  }
+  BEGIN_SDK
+    Add(EditMulti,7721315,21,21)
+    {
+     EventCount=2
+     WorkCount=2
+     Width=678
+     Height=347
+     link(doWork1,6087108:doEvent1,[(42,27)(42,181)])
+     link(doWork2,15638240:doEvent1,[(45,34)(45,223)])
+    }
+    Add(GroupBox,10896982,658,112)
+    {
+     Left=5
+     Top=97
+     Width=245
+     Height=85
+     TabOrder=3
+     Caption="Параметры обновления"
+     MakeTrans(Caption)
+    }
+    Add(Edit,2010537,147,35)
+    {
+     Left=6
+     Top=30
+     Width=235
+     TabOrder=4
+     Hint="Это поле отключено и не используется"
+     Text="https://center.vodafone.de/vfcenter/index.html"
+    }
+    Add(Label,3311948,84,84)
+    {
+     Left=7
+     Top=60
+     Width=153
+     Height=17
+     Caption="Обновлять данные каждые"
+     AutoSize=1
+     Alignment=1
+     MakeTrans(Caption)
+    }
+    Add(Label,2803136,84,35)
+    {
+     Left=7
+     Top=13
+     Width=168
+     Height=17
+     Caption="Адрес страницы со статистикой"
+     MakeTrans(Caption)
+    }
+    Add(ComboBox,13724036,350,35)
+    {
+     Left=166
+     Top=55
+     Width=75
+     Height=21
+     TabOrder=5
+     Strings=#8:30 минут|5:1 час|6:2 часа|8:12 часов|7:24 часа|
+     Text=""
+     ReadOnly=0
+     Point(doSelect)
+     Point(doSelectString)
+     link(onClick,15989202:doEvent1,[(446,48)(446,103)])
+    }
+    Add(Ini,3748447,182,203)
+    {
+     FileName="settings.cnf"
+     Section="Config"
+     Key="URL"
+     Type=1
+     link(onResult,14849010:doEvent1,[(230,209)(230,216)])
+     link(Value,2010537:Text,[(209,138)(153,138)])
+    }
+    Add(Hub,6087108,63,175)
+    {
+     link(onEvent1,3748447:doRead,[(129,181)(129,209)])
+     link(onEvent2,6684661:doRead,[(231,188)(231,188)])
+    }
+    Add(Hub,15638240,70,217)
+    {
+     link(onEvent1,3748447:doWrite,[(133,223)(133,216)])
+     link(onEvent2,6684661:doWrite,[(234,230)(234,195)])
+    }
+    Add(Ini,6684661,385,182)
+    {
+     FileName="settings.cnf"
+     Section="Config"
+     Key="Check"
+     Type=1
+     link(onResult,7089024:doEvent1,[(433,188)(433,188)])
+     link(Value,711183:Index,[(412,123)(559,123)])
+    }
+    Add(StrList,711183,532,56)
+    {
+     Strings=#7:1800000|7:3600000|7:7200000|8:43200000|8:86400000|0:|0:|
+     Point(doGetString)
+     Point(onGetString)
+     Point(Index)
+     Point(String)
+     link(onGetString,7721315:onEvent1,[(600,69)(600,27)])
+    }
+    Add(Hub,15989202,462,98)
+    {
+     InCount=2
+     OutCount=1
+     link(onEvent1,711183:doGetString,[(504,104)(504,90)])
+    }
+    Add(Hub,7089024,448,182)
+    {
+     link(onEvent1,13724036:doSelect,[(474,188)(474,128)(338,128)(338,69)])
+     link(onEvent2,15989202:doEvent2,[(474,195)(474,153)(450,153)(450,111)])
+    }
+    Add(Hub,14849010,245,210)
+    {
+     link(onEvent1,2010537:doText,[(271,216)(271,128)(135,128)(135,41)])
+     link(onEvent2,7721315:onEvent2,[(479,223)(479,34)])
+    }
+  END_SDK
+  Add(ChildGroupBox,1449529,175,154)
+  {
+   link(onEvent1,3099554:Slow_Mini,[(359,160)(359,34)])
+  }
+  BEGIN_SDK
+    Add(EditMulti,3029807,21,21)
+    {
+     EventCount=1
+     WorkCount=2
+     Width=489
+     Height=410
+     link(doWork1,3246251:doEvent1,[(31,27)(31,146)])
+     link(doWork2,15113896:doEvent1,[(31,34)(31,181)])
+    }
+    Add(GroupBox,10075272,35,84)
+    {
+     Left=5
+     Top=3
+     Width=245
+     Height=89
+     Caption="Параметры"
+    }
+    Add(Ini,12244746,147,133)
+    {
+     FileName="settings.cnf"
+     Section="Config"
+     Key="Autorun"
+     link(onResult,10546450:doEvent,[])
+     link(Value,16260469:Checked,[(174,125)(153,125)])
+    }
+    Add(IndexToChanel,10546450,210,133)
+    {
+     link(onEvent2,16260469:doCheck,[(254,146)(254,118)(135,118)(135,90)])
+    }
+    Add(CheckBox,16260469,147,84)
+    {
+     Left=5
+     Top=40
+     Width=190
+     TabOrder=2
+     Caption="Автозапуск при старте системы"
+     MakeTrans(Caption)
+     link(onCheck,13434456:doEvent,[(223,90)(223,97)])
+    }
+    Add(CheckBox,998515,147,203)
+    {
+     Left=5
+     Top=15
+     Width=230
+     TabOrder=1
+     Caption="Запускать свернутым в системный трей"
+     MakeTrans(Caption)
+    }
+    Add(Ini,5524259,147,251)
+    {
+     FileName="settings.cnf"
+     Section="Config"
+     Key="Tray"
+     link(onResult,9157517:doEvent1,[(198,257)(198,272)])
+     link(Value,998515:Checked,[(174,243)(153,243)])
+    }
+    Add(IndexToChanel,15446185,252,209)
+    {
+     link(onEvent2,998515:doCheck,[(296,222)(296,216)(135,216)(135,209)])
+    }
+    Add(Hub,3246251,56,140)
+    {
+     OutCount=3
+     link(onEvent1,12244746:doRead,[(108,146)(108,139)])
+     link(onEvent2,5524259:doRead,[(108,153)(108,257)])
+     link(onEvent3,13085820:doRead,[(140,160)(140,340)])
+    }
+    Add(Hub,15113896,56,175)
+    {
+     OutCount=3
+     link(onEvent1,12244746:doWrite,[(108,181)(108,146)])
+     link(onEvent2,5524259:doWrite,[(108,188)(108,264)])
+     link(onEvent3,13085820:doWrite,[(140,195)(140,347)])
+    }
+    Add(Hub,9157517,217,266)
+    {
+     link(onEvent1,15446185:doEvent,[(235,272)(235,215)])
+     link(onEvent2,10335971:doEvent,[])
+    }
+    Add(IndexToChanel,10335971,259,273)
+    {
+     link(onEvent1,15918190:doReset,[(307,279)(307,286)])
+     link(onEvent2,15918190:doOn,[(307,286)(307,293)])
+    }
+    Add(Switch,15918190,315,273)
+    {
+     DataOn=Integer(0)
+     DataOff=Integer(1)
+     Default=0
+     Point(doOn)
+     link(onSwitch,3029807:onEvent1,[(429,279)(429,27)])
+    }
+    Add(IndexToChanel,13434456,273,91)
+    {
+     link(onEvent1,4369704:doDeleteValue,[(324,97)(324,111)])
+     link(onEvent2,4369704:doWrite,[])
+    }
+    Add(Registry,4369704,350,91)
+    {
+     HKey=1
+     Key="SOFTWARE\Microsoft\Windows\CurrentVersion\Run"
+     Value="Vodafone"
+     Point(doDeleteValue)
+     link(Data,10527593:AppFileName,[])
+    }
+    Add(Application,10527593,350,35)
+    {
+    }
+    Add(ComboBox,11375930,115,330)
+    {
+     Left=50
+     Top=60
+     Width=70
+     Height=21
+     TabOrder=3
+     Strings=#7:Русский|7:Deutsch|
+     Text=""
+     DataType=1
+     ReadOnly=0
+     Point(doSelectString)
+     link(onClick,6153967:doOn,[(224,343)(224,384)])
+    }
+    Add(Label,11366885,42,343)
+    {
+     Left=5
+     Top=65
+     Width=42
+     Height=17
+     Caption="Язык"
+     Alignment=1
+     MakeTrans(Caption)
+    }
+    Add(Ini,13085820,210,334)
+    {
+     FileName="settings.cnf"
+     Section="Config"
+     Key="Lang"
+     Type=1
+     link(onResult,11375930:doSelectString,[(254,340)(254,352)(103,352)(103,364)])
+     link(Value,11375930:String,[(237,322)(183,322)(183,374)(128,374)])
+    }
+    Add(Label,12145822,394,357)
+    {
+     Left=125
+     Top=65
+     Width=119
+     Height=17
+     Visible=1
+     Caption="Требуется перезапуск"
+     Point(doVisible)
+     MakeTrans(Caption)
+    }
+    Add(Switch,6153967,301,364)
+    {
+     DataOn=Integer(1)
+     DataOff=Integer(0)
+     Point(doOn)
+     link(onSwitch,12145822:doVisible,[])
+    }
+  END_SDK
+  Add(Hub,15264678,63,161)
+  {
+   OutCount=3
+   link(onEvent1,1449529:doWork2,[])
+   link(onEvent2,10810665:doWork2,[(115,174)(115,209)])
+   link(onEvent3,15652966:doClose,[(154,181)(154,62)])
+  }
+  Add(Hub,1215466,28,28)
+  {
+   OutCount=3
+   link(onEvent1,10810665:doWork1,[(175,34)(175,202)])
+   link(onEvent2,1449529:doWork1,[(108,41)(108,160)])
+  }
+  Add(Button,9968397,406,273)
+  {
+   Left=187
+   Top=187
+   Width=63
+   Caption="Браузер"
+   MakeTrans(Caption)
+   link(onClick,3099554:Debug_browser,[(474,279)(474,41)])
+  }
+END_SDK
+Add(ChildForm,14416001,784,28)
+{
+}
+BEGIN_SDK
+  Add(EditMulti,5585836,21,21)
+  {
+   WorkCount=3
+   VarCount=2
+   link(doWork1,5640289:doVisible,[(28,27)(28,139)])
+   link(doWork2,15635459:doRefresh,[(77,34)(77,104)])
+   link(doWork3,15635459:doNavigate,[(77,41)(77,97)])
+   link(Var1,15635459:Page,[(27,172)(146,172)])
+   link(Var2,15635459:CurrentURL,[(34,172)(139,172)])
+  }
+  Add(MainForm,5640289,35,105)
+  {
+   Left=35
+   Top=105
+   Width=565
+   Height=366
+   Visible=1
+   Point(doVisible)
+  }
+  Add(WebBrowser,15635459,133,91)
+  {
+   Width=549
+   Height=327
+   Align=5
+   URL=""
+   Silent=0
+  }
+END_SDK
+Add(DoData,8625012,791,98)
+{
+ link(onEventData,12918173:doShellExec,[(839,104)(839,111)])
+ link(Data,14416001:Var2,[])
+}
+Add(Timer,11815264,266,266)
+{
+ Point(doInterval)
+ link(onTimer,11625284:doEvent2,[(310,272)(310,258)])
+}
+Add(Timer,16381433,413,112)
+{
+ Interval=10000
+ link(onTimer,5876417:doEvent1,[])
+}
+Add(Mutex,16100399,392,14)
+{
+ Name="vodafone"
+ Point(onError)
+ link(onCreated,1539647:In,[])
+ link(onAlreadyExists,5227599:doMessage,[(436,27)(436,48)])
+}
+Add(ButtonRush,15485726,266,231)
+{
+ Top=-1
+ Width=30
+ Height=15
+ Hint="Ручное обновление"
+ ColorFrom=15780518
+ ColorTo=-16777201
+ GradientStyle=1
+ BorderWidth=0
+ Caption="O"
+ Glyphs=[]
+ MakeTrans(Hint)
+ MakeTrans(Caption)
+ link(onClick,11625284:doEvent1,[(306,237)(306,251)])
+}
+Add(BitmapArray,8624481,651,322)
+{
+ Bitmaps=['Run'=[ZIP3604000078DA8D935948945114C76F51540F4110D4ABD08BB441103D465442143E940516865351B49AED8B1A4C8B8631444F6A99E9580825D5D8A695A6E5366E636EA994E93494CD34CD52A3C3CC7CDFAF93235190D4811FF77EE7FECF3DE77CF7DE95F1CBA6A8315B26C40AB3C699A462A20BE3EBBF1B1398D7EBC5E1708CE1F3F9F85FEBE8E8E070C64596EFBACC829D852CDC738B1529B91C359AE8EAEA9A30CEEFF793B43F9D6907FA5187FCA8F3215409A8A7C203E12ACC38666747EA190281C01FB12E978BF9DB7250A747501722A8521D25A9D4B0E01744AE9CE2B368A893019618AEE0F178C662755D67DD3E13CA1846E58BAE45782DB40BBDC23B61709CCFC2132123C4C694ECB1786B530B938F3B51C530B70A2697C35419177488AE8D681D3638F81112DECBFC8D500B53523FD1D9D94D8A310F95033165609392A69BE1B66877F78BEEB1D0285AE1B117A6D5CBF7CBA84FDD855399D7D878221F5500F34A74FADC1A83DF3482610D4F18F6F6C1CC0A5825FDD4CADEEA9120F5A987420D6C49CB6753DA7526DD105D2ECC29D2595AA6B1E185464883F6E108C3A33A56C95D60971A9FC362E96D7659F43F249DBD41624611F175B0EB19240B09A2592DE348047ABEC1A88C9621A94DE66B2467A2F4BE5DF46B5BC170CE4C765E29C9F29FD2A5B7D46A5993F86E97F6D73BA20BC3A370A40136CB39E5982DB8DD6E16157CA578082E354396F88D2F43580783F47C0A62730469FF10A4BC3F48CDBB20039F4729947388CD75FEBAD745772A48941A1ADC5022E7532864364630D686C9B446385F1FC1D4AA912D3E73AFCEFA668DD247D57FD476CB5249DCD311DA64CBB7DFA1F32BB439A1C5199D0F88CF266B711501EE95BFFA6B7F030343246559303CFCC2E53EC921F7F727A6DE085B2D2E0C59F7B1DB1DFF7C835EAF8F3AAB8D9BF7AA28BE5B497D936DC237FC038637488F],'Settings'=[ZIP3604000078DA6D52E94AA261146E602E602E617ECE157401FD9FBB120D85C45C92C2167323D4D4FEA461648B8DE61A2A6EF8C3258204B714CAEC99EF3993E154071EBEF39DFD3CEF59F9BDFC7D496459C12F053FDEF06DE9E73FC79B7F51B020AFAFAFB8BFBF47A7D341BD5E874EA78356AB45AD56C3DDDD9DF818F395D01E8FC7A156ABB1B6B606AFD70B8D4683D5D555F87C3EB1D1777979F9A9C66C36C3783CC6F1F1B1C4ADAFAF43A552C16AB50AA81B8D46E8F57A1C1E1E4A2C73E6727373237EB3D90C9BCD06A7D3898383038925A8BB5C2E6C6D6DC16030C0643221914848EEE3E32376767604FBFBFB080683889D9D219FCBA1542A09F2F91C62B133844221381C0EECEDED617B7B1BA3D108CFCFCFB8BEBE46201040381C56EAFE41269346A15010DE08EAB425959E27272732D3E9E9299E9E9EA4BEC7E39119B9473299509044ABD5921DC955BBDD9679E94BA55212EF76BB512C1685F38B8B0BF1178B059921168B613A9DBEF3F3F2F22236FA18C3FACC616EA55291771D0C06E876BBB2C7D1D1D1A77CDAE8EB3E3C482C73983B994C707B7B8BF3F373E183BBD9ED7694CB65999D601CB9F5FBFD180D87D29B39CC1D2AFFE49CF7C5FEE469777757DE925C13168B456CE9745A6218CB1CE672CE6AB52A7C916B7E597F7373131B1B1B723FD469A3AFD168BCC7CE77ECF57AF21F894494B7CE8BCE9AE489A04E1B7D7CBF66B329391F6F983D1893536E87DC5227AEAEAE90CD66458F46A3FFDDEEA2F4FB7DB915829CF14D097299C96484B38F7D3F0A6BF3BD78D7F33DA8D3F655DFBFD9EF75F3],'-'=[],'Exit'=[ZIP3604000078DAAD925B48D37114C755CA40A486428AD6A6B66AE9B4509C19FA60FAA2D093BEF828DED1175F44F0451031F10AA211828A6B12D335450C6A5ED2A915819BB952CB6D8EDD9AD3FDB56C5EE6F6EDF8774D7B09820E7CF8C139E77B7E9CCBC347A20B7EAC890801C1F1E2EF17751AF0C6CF1BBC663018A052A9A056ABFFCA498E56ABC579EBEB1B058F27FE275A5A24F0783CAC3E3A5A8EC08B33F0F39B25DE138BC41AC2C34D8888D844F0153B0283B710C167C0BFB78BC44C1762EF4EFAFEE77064943F4E4C114A54561AB0BA7AE88B1B8D6E343CFE81F0181B787176C4A731B89D30774E2F65F5FEFE0AB4B599599F5EEF4447870DCDCD7668344ED6271B3D4094D08ED85406B7E2953E7D48C873D28EA1BCFCF3699ECC86A0A0931E3E115A04046CA0EB89838D753E75E27ADC366E0A677CFAB0B041E2159697BFC3E93C4652920A5CAE86E6F405A1A13AAA61C4A520234CA623D8B73CB893EC408CE08D4F1F19F98C3453609823ACAF3B21147E8048A44162E21ABD7AA4DEB72024D482F197FB6C7E529A03DC1B533EFDC93E1E3C98A039FDA41A2E64662E223DFD237A7AECE8ED65909D6D444E8E0D3ADD31981D37B8FC4D5CE39DCD9FCF1F4046C604A4529DF71ECC94AF86C3E1C2DE9E1B7979D47F17C3C6E6E7F7709963C5D530854F2F100C203F7F060505B3745BDE39756ED04DEEC36239447FBF9DF5D96C4ED4D75B5058B8CDCEEBB72524885151A14451911255550B90CB57D0D0A081D57A409A23482406BADD6F686CD4A1B6D68CD6D64D2427BFF6E9535224A8A951A2BA7A8E784735DE529E0ABBBB2EDA879BFE5C455DDD0A9A9A36D0DE6E4077B719595967FADCDC410C0FEBA8FFAFEC2B971B303666C6C888895E2B2627B7313DED8052C950FF3B585ADA87587CB63F85428F929217D4D71021A53E86588A8B87C9FF27A5A5329495C9B1B0A0C7FFB05F72F1F924]]
+}
+Add(Hub,4532465,140,280)
+{
+ InCount=2
+ OutCount=1
+ link(onEvent1,2296218:doShowModal,[])
+}
+Add(Hub,11625284,315,245)
+{
+ InCount=2
+ link(onEvent1,7532375:In,[])
+}
+Add(LineBreak,16510006,0,49)
+{
+ Caption="Закрытие программы из меню"
+ link(Out,8205278:doEvent2,[(188,55)(188,27)])
+ Primary=[12422480,770,336]
+}
+Add(LineBreak,3462838,420,315)
+{
+ Caption="Показать форму"
+ link(Out,10433839:doShow,[])
+ Primary=[13562553,350,42]
+}
+Add(LineBreak,8981086,49,308)
+{
+ Caption="Показать настройки"
+ link(Out,4532465:doEvent2,[(180,314)(180,304)(128,304)(128,293)])
+ Primary=[8444411,721,63]
+}
+Add(LineBreak,7518294,420,336)
+{
+ Caption="Иконка в трей"
+ link(Out,10433839:doAddTrayIcon,[])
+ Primary=[7663049,-329,-231]
+}
+Add(LineBreak,8603829,714,147)
+{
+ Caption="%"
+ Type=1
+ Color=255
+ link(Data,5293927:Position,[])
+ Primary=[12367326,-63,98]
+}
+Add(LineBreak,6487841,644,35)
+{
+ Caption="Обновление данных"
+ link(Out,14416001:doWork2,[])
+ Primary=[7532375,-301,210]
+}
+Add(LineBreak,16668196,56,329)
+{
+ Caption="Чтение параметров"
+ link(Out,2296218:Read_Set,[(194,335)(194,293)])
+ Primary=[6565397,35,-182]
+}
+Add(LineBreak,14973863,63,70)
+{
+ Caption="Запуск свернутым"
+ link(Out,2953706:doVisible,[(191,76)(191,41)])
+ Primary=[5511318,203,252]
+}
+Add(Message,5227599,448,42)
+{
+ Message="Программа уже выполняется"
+ Caption="Повторный запуск"
+ Icon=4
+ Point(onOK)
+ MakeTrans(Message)
+ MakeTrans(Caption)
+ link(onOK,8205278:doEvent3,[(520,55)(520,31)(184,31)(184,34)])
+}
+Add(LineBreak,5915514,21,126)
+{
+ link(Out,9933516:doEvent1,[])
+ Primary=[1539647,434,-112]
+}
+Add(FileTools,9727782,189,413)
+{
+ FileName="settings.cnf"
+ link(onEnd,6123772:doEvent,[])
+}
+Add(IndexToChanel,6123772,245,413)
+{
+ link(onEvent1,12110464:doSave,[(293,419)(293,447)])
+}
+Add(StrList,12110464,308,413)
+{
+ FileName="settings.cnf"
+ Strings=#8:[Config]|9:Autorun=0|6:Tray=0|50:URL=https://center.vodafone.de/vfcenter/index.html|7:Check=2|7:Lang=ru|
+ Point(doSave)
+}
+Add(LineBreak,15562731,651,14)
+{
+ Caption="Открытие браузера"
+ link(Out,14416001:doWork1,[(775,20)(775,34)])
+ Primary=[12209974,-385,287]
+}
+Add(ProgressBarRush,5293927,714,98)
+{
+ Left=-2
+ Top=195
+ Width=302
+ Height=30
+ Font=[Century Gothic,8,0,0,1]
+ ColorFrom=-16777201
+ GradientStyle=1
+ BorderWidth=0
+ DrawProgress=1
+ Caption=""
+ Point(doCaption)
+}
+Add(LineBreak,11292871,721,56)
+{
+ Caption="URL"
+ link(Out,14416001:doWork3,[(771,62)(771,48)])
+ Primary=[15146061,-455,287]
+}
+Add(Translator,13994519,98,504)
+{
+ LangWords=['Закрыть'="",'Настройки'="",'H'="",'Ручное обновление'="",'O'="",'Программа уже выполняется'="",'Повторный запуск'="",'Осталось'=""]
+ Place=1
+ Key="settings.cnf"
+ Section="Config"
+ Value="Lang"
+ LangsDir="\lng"
+}
+Add(HintManager,16033650,140,504)
+{
+ Name="Date"
+ Font=[Tahoma,8,0,0,1]
+}
+Add(Label,12905026,189,504)
+{
+ Left=61
+ Top=11
+ Width=177
+ Height=26
+ Font=[Century Gothic,14,0,0,1]
+ Caption="Осталось"
+ AutoSize=1
+ Alignment=2
+ MakeTrans(Caption)
+}
+Add(ButtonRush,7977730,56,504)
+{
+ Left=30
+ Top=-1
+ Width=210
+ Height=15
+ Enabled=1
+ Hint="Ручное обновление"
+ ColorFrom=15780518
+ ColorTo=-16777201
+ GradientStyle=1
+ BorderWidth=0
+ ColorFromDis=15780518
+ ColorToDis=-16777201
+ ShadowOffsetDis=0
+ GradientStyleDis=1
+ BorderWidthDis=0
+ Caption=""
+ Glyphs=[]
+ MakeTrans(Hint)
+ MakeTrans(Caption)
+}
+Add(Edit,11400942,833,182)
+{
+ Left=35
+ Top=280
+ Width=255
+ Height=60
+}
+Add(LineBreak,15690456,154,385)
+{
+ Caption="Проверка наличия файла конфигурации"
+ link(Out,9727782:doFileExists,[(384,391)(384,415)(177,415)(177,440)])
+ Primary=[393622,-63,-259]
+}
+Add(GetDataEx,9838752,530,110)
+{
+ link(Data,8116485:Var1,[(536,82)])
+}
