@@ -1,1 +1,1 @@
-1.9;E1884E41981424E254B1078AF846A294;https://dl.dropboxusercontent.com/s/cfgf0nra9t9sj9e/Vodafone_Traffic.exe;https://www.dropbox.com/s/jc89z7zbc4ltov7/Vodafone_Traffic.sfx.exe?dl=0
+2.0;64FA04AC8DF5D01287493359DBD1AB64;https://raw.githubusercontent.com/makcum15/Traffic-Check/master/exe/Vodafone_Traffic.exe;https://raw.githubusercontent.com/makcum15/Traffic-Check/master/exe/Vodafone_Traffic.sfx.exe
