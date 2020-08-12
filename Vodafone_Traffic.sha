@@ -1104,31 +1104,31 @@ Add(Hub,11625284,315,245)
  link(onEvent2,16381433:doTimer,[(361,258)(361,118)])
  link(onEvent3,10982291:doTimer,[(434,265)(434,503)])
 }
-Add(LineBreak,1451268,0,49)
+Add(LineBreak,2969958,0,49)
 {
  Caption="Закрытие программы из меню"
  link(Out,8205278:doEvent2,[(188,55)(188,27)])
  Primary=[12422480,770,336]
 }
-Add(LineBreak,14465650,420,315)
+Add(LineBreak,9803397,420,315)
 {
  Caption="Показать форму"
  link(Out,10433839:doShow,[])
  Primary=[13562553,350,42]
 }
-Add(LineBreak,2175883,49,308)
+Add(LineBreak,6493876,49,308)
 {
  Caption="Показать настройки"
  link(Out,4532465:doEvent2,[(180,314)(180,304)(128,304)(128,293)])
  Primary=[8444411,721,63]
 }
-Add(LineBreak,3876558,420,336)
+Add(LineBreak,12560516,420,336)
 {
  Caption="Иконка в трей"
  link(Out,10433839:doAddTrayIcon,[])
  Primary=[7663049,-329,-231]
 }
-Add(LineBreak,15197167,728,147)
+Add(LineBreak,2188805,728,147)
 {
  Caption="%"
  Type=1
@@ -1136,19 +1136,19 @@ Add(LineBreak,15197167,728,147)
  link(Data,5293927:Position,[])
  Primary=[12367326,-21,91]
 }
-Add(LineBreak,1824183,665,14)
+Add(LineBreak,5529553,665,14)
 {
  Caption="Обновление данных"
  link(Out,4504983:doLoadString,[(811,20)(811,34)])
  Primary=[7532375,-322,231]
 }
-Add(LineBreak,7823190,56,329)
+Add(LineBreak,2207773,56,329)
 {
  Caption="Чтение параметров"
  link(Out,2296218:Read_Set,[(194,335)(194,293)])
  Primary=[6565397,35,-161]
 }
-Add(LineBreak,3470068,63,70)
+Add(LineBreak,3391037,63,70)
 {
  Caption="Запуск свернутым"
  link(Out,2953706:doVisible,[(191,76)(191,41)])
@@ -1164,7 +1164,7 @@ Add(Message,5227599,448,42)
  MakeTrans(Caption)
  link(onOK,8205278:doEvent3,[(520,55)(520,31)(184,31)(184,34)])
 }
-Add(LineBreak,1857181,21,126)
+Add(LineBreak,4195346,21,126)
 {
  link(Out,9933516:doEvent1,[])
  Primary=[1539647,434,-112]
@@ -1183,7 +1183,7 @@ Add(ProgressBarRush,5293927,728,91)
  Caption=""
  Point(doCaption)
 }
-Add(LineBreak,1253581,721,42)
+Add(LineBreak,3026238,721,42)
 {
  Caption="URL"
  link(Out,4504983:Url,[(799,48)(799,41)])
@@ -1238,7 +1238,7 @@ Add(ButtonRush,7977730,84,476)
  MakeTrans(Caption)
  link(onClick,15845089:doWork1,[])
 }
-Add(LineBreak,9427762,49,357)
+Add(LineBreak,10159920,49,357)
 {
  Caption="Проверка наличия файла конфигурации"
  link(Out,1750725:CheckConfig,[])
@@ -1252,7 +1252,7 @@ Add(Label,12709714,231,560)
  Caption="The traffic limit is almost exhausted!"
  MakeTrans(Caption)
 }
-Add(LineBreak,13448304,231,602)
+Add(LineBreak,7591246,231,602)
 {
  Caption="Имя балуна"
  Type=1
@@ -1264,7 +1264,7 @@ Add(GetDataEx,4088093,553,63)
  Angle=1
  link(Data,12668232:Var1,[])
 }
-Add(LineBreak,10194170,441,91)
+Add(LineBreak,13511127,441,91)
 {
  Caption="Таймер"
  link(Out,9555336:doWork2,[])
@@ -1439,9 +1439,7 @@ Add(GetDataEx,12668232,567,63)
 }
 Add(Case,12144279,658,497)
 {
- Value=String(<h1>
-Entschuldigung...
-</h1>)
+ Value=String(<h1)
  link(onTrue,427305:doEvent1,[(702,510)(702,503)])
 }
 Add(Message,473216,763,483)
@@ -1512,37 +1510,37 @@ Add(Hub,13929844,700,91)
  OutCount=1
  link(onEvent1,5293927:doPosition,[])
 }
-Add(LineBreak,7225726,462,357)
+Add(LineBreak,11741395,462,357)
 {
  link(Out,4158397:doEvent2,[])
  Primary=[12472714,168,224]
 }
-Add(LineBreak,13641266,658,119)
+Add(LineBreak,2518754,658,119)
 {
  link(Out,13929844:doEvent2,[(694,125)(694,104)])
  Primary=[7523699,7,455]
 }
-Add(LineBreak,790809,567,203)
+Add(LineBreak,290992,567,203)
 {
  link(Out,9683022:doEvent2,[])
  Primary=[10289318,133,364]
 }
-Add(LineBreak,7567502,567,147)
+Add(LineBreak,14596937,567,147)
 {
  link(Out,2929526:doEvent2,[])
  Primary=[6421653,168,413]
 }
-Add(LineBreak,90779,567,91)
+Add(LineBreak,2607145,567,91)
 {
  link(Out,12938719:doEvent2,[])
  Primary=[14790996,203,462]
 }
-Add(LineBreak,8944818,490,553)
+Add(LineBreak,2265086,490,553)
 {
  link(Out,11227096:doEvent1,[])
  Primary=[3763455,406,-525]
 }
-Add(LineBreak,10286663,28,210)
+Add(LineBreak,4451436,28,210)
 {
  Caption="Остановка таймера"
  link(Out,11815264:doStop,[(205,216)(205,279)])
@@ -1619,7 +1617,7 @@ Add(Label,10617824,322,553)
  Caption="No;data;received!;0;No data received!"
  MakeTrans(Caption)
 }
-Add(LineBreak,7541285,266,623)
+Add(LineBreak,9059127,266,623)
 {
  Caption="Данные не получены"
  Type=1
@@ -1914,7 +1912,7 @@ BEGIN_SDK
    link(onEvent1,14081839:doData,[])
   }
 END_SDK
-Add(LineBreak,16442927,14,434)
+Add(LineBreak,12563701,14,434)
 {
  Caption="Проверка обновлений"
  link(Out,2710859:Run_CheckUpdate,[])
@@ -1925,7 +1923,7 @@ Add(GetDataEx,5936897,175,406)
  Angle=3
  link(Data,5505180:Var,[(172,411)(172,407)(181,407)])
 }
-Add(LineBreak,10632055,63,644)
+Add(LineBreak,5446618,63,644)
 {
  Caption="Версия"
  Type=1
@@ -1966,7 +1964,7 @@ Add(Translator,8982576,140,553)
 Add(Translator,14615643,180,607)
 {
  Lang="Deutsch"
- LangWords=['Close'="Schlissen",'Settings'="Einstellungen",'Manual update'="Manuelle Aktualisierung",'About'="Informationen zum Programm",'The program is already running'="Das Programm lauft bereits",'Start Error'="Neu starten",'Remaining'="Noch",'Remaining '="Es gibt noch ",'% traffic left'="% Datenverkehr",'of '="von ",'S'="E",'U'="A",'Language'="Sprache",'Requires restart'="Erfordert einen Neustart",'Apply'="Bewerben",'Autostart on system startup'="Autostart beim Systemstart",'Run rolled up in the system tray'="Im Systemtray aufgerollt ausfuhren",'Address of the page with statistics'="Adresse der Seite mit den Statistiken",'Update interval'="Aktualisierungsintervall",'Update options'="Aktualisierungsoptionen",'Double-clicking will take you to the statistics page'="Durch Doppelklicken gelangen Sie zur Statistikseite.",'Last settlement day '="Letzter Abrechnungstag ",'Turn into a tray'="In den tray minimieren",'Used from %1%2'="Benutzt seit %1%2",'Remaining %1 of %2 %3'="Es gibt noch %1 von %2 %3",'Used %1 %2'="Benutzt %1 %2",'Traffic''s over! (%1)'="Der Datenverkehr ist zu Ende! (%1)",'The traffic limit is almost exhausted!'="Das Datenverkehrslimit ist fast ausgeschopft!",'No;data;received!;0;No data received!'="Keine;Daten;erhalten!;0;Keine Daten erhalten!",'Click to check for updates'="Klicken Sie hie",' um nach Updates zu suchen",''Checking for updates'''="Auf Aktualisierungen prГјfen",'Check'="Prufen",'Update'="Aktualisierung",'A new version of the program is available!'="Eine neue Version des Programms ist verfugbar!",'You have the latest version of the software, no update is required.'="Sie haben die neueste Version der Softwar",' eine Aktualisierung ist nicht erforderlich.",''Check error md5'''="Fehler prufen md5",'Checking the downloaded file ended in an error. The checksum md5 does not match. Upload a file manually?'="Die Uberprufung der heruntergeladenen Datei endete mit einem Fehler. Die Prufsumme md5 stimmt nicht uberein. Eine Datei manuell hochladen?",'Perform a check...'="Fuhren Sie eine Uberprufung durch...",'For a successful update, run the program from an administrator'="Fur eine erfolgreiche Aktualisierung fuhren Sie das Programm von einem Administrator aus",'Double-click to manually download the latest version'="Doppelklicken Sie zum manuellen Herunterladen der neuesten Version"]
+ LangWords=['Close'="Schlissen",'Settings'="Einstellungen",'Manual update'="Manuelle Aktualisierung",'About'="Informationen zum Programm",'The program is already running'="Das Programm lauft bereits",'Start Error'="Neu starten",'Remaining'="Noch",'Remaining '="Es gibt noch ",'% traffic left'="% Datenverkehr",'of '="von ",'S'="E",'U'="A",'Language'="Sprache",'Requires restart'="Erfordert einen Neustart",'Apply'="Bewerben",'Autostart on system startup'="Autostart beim Systemstart",'Run rolled up in the system tray'="Im Systemtray aufgerollt ausfuhren",'Address of the page with statistics'="Adresse der Seite mit den Statistiken",'Update interval'="Aktualisierungsintervall",'Update options'="Aktualisierungsoptionen",'Double-clicking will take you to the statistics page'="Durch Doppelklicken gelangen Sie zur Statistikseite.",'Last settlement day '="Letzter Abrechnungstag ",'Turn into a tray'="In den tray minimieren",'Used from %1%2'="Benutzt seit %1%2",'Remaining %1 of %2 %3'="Es gibt noch %1 von %2 %3",'Used %1 %2'="Benutzt %1 %2",'Traffic''s over! (%1)'="Der Datenverkehr ist zu Ende! (%1)",'The traffic limit is almost exhausted!'="Das Datenverkehrslimit ist fast ausgeschopft!",'No;data;received!;0;No data received!'="Keine;Daten;erhalten!;0;Keine Daten erhalten!",'Click to check for updates'="Klicken Sie hie",' um nach Updates zu suchen",''Checking for updates'''="Auf Aktualisierungen prufen",'Check'="Prufen",'Update'="Aktualisierung",'A new version of the program is available!'="Eine neue Version des Programms ist verfugbar!",'You have the latest version of the software, no update is required.'="Sie haben die neueste Version der Software, eine Aktualisierung ist nicht erforderlich.",'Check error md5'="Fehler prufen md5",'Checking the downloaded file ended in an error. The checksum md5 does not match. Upload a file manually?'="Die Uberprufung der heruntergeladenen Datei endete mit einem Fehler. Die Prufsumme md5 stimmt nicht uberein. Eine Datei manuell hochladen?",'Perform a check...'="Fuhren Sie eine Uberprufung durch...",'For a successful update, run the program from an administrator'="Fur eine erfolgreiche Aktualisierung fuhren Sie das Programm von einem Administrator aus",'Double-click to manually download the latest version'="Doppelklicken Sie zum manuellen Herunterladen der neuesten Version",'Vodafone Check Traffic'=""]
  Section="SOFTWARE\VodafoneCheckTraffic"
  Value="Lang"
 }
