@@ -1,2 +1,2 @@
-# Traffic-Check
-Проверка трафика в сети Vodafone DE<br>
+# Vodafone Traffic Check
+<p>Проверка трафика для GigaCube в сети Vodafone DE.</p>
