@@ -1,1 +1,1 @@
-2.0;64FA04AC8DF5D01287493359DBD1AB64;https://raw.githubusercontent.com/makcum15/Traffic-Check/master/exe/Vodafone_Traffic.exe;https://raw.githubusercontent.com/makcum15/Traffic-Check/master/exe/Vodafone_Traffic.sfx.exe
+1.9.1;64FA04AC8DF5D01287493359DBD1AB64;https://raw.githubusercontent.com/makcum15/Traffic-Check/master/exe/Vodafone_Traffic.exe;https://raw.githubusercontent.com/makcum15/Traffic-Check/master/exe/Vodafone_Traffic.sfx.exe
