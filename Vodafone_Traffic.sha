@@ -74,7 +74,7 @@ Add(Label,5672305,637,196)
 }
 Add(MultiElement,9555336,525,84)
 {
- @Hint=#36:Показывает, сколько осталось трафика|
+ @Hint=#36:РџРѕРєР°Р·С‹РІР°РµС‚, СЃРєРѕР»СЊРєРѕ РѕСЃС‚Р°Р»РѕСЃСЊ С‚СЂР°С„РёРєР°|
  link(onEvent1,12938719:doEvent1,[])
  link(onEvent2,13929844:doEvent1,[])
  link(onEvent3,5293927:doCaption,[])
@@ -303,7 +303,7 @@ BEGIN_SDK
 END_SDK
 Add(MultiElement,15685225,525,140)
 {
- @Hint=#42:Показывает сколько всего трафика по тарифу|
+ @Hint=#42:РџРѕРєР°Р·С‹РІР°РµС‚ СЃРєРѕР»СЊРєРѕ РІСЃРµРіРѕ С‚СЂР°С„РёРєР° РїРѕ С‚Р°СЂРёС„Сѓ|
  link(onEvent1,2929526:doEvent1,[])
  link(Data1,4088093:Var2,[(531,111)(559,111)])
 }
@@ -355,7 +355,7 @@ BEGIN_SDK
 END_SDK
 Add(MultiElement,14998219,525,196)
 {
- @Hint=#30:Показывает дату начала расчета|0:|46:Вторая точка показывает последний день расчета|
+ @Hint=#30:РџРѕРєР°Р·С‹РІР°РµС‚ РґР°С‚Сѓ РЅР°С‡Р°Р»Р° СЂР°СЃС‡РµС‚Р°|0:|46:Р’С‚РѕСЂР°СЏ С‚РѕС‡РєР° РїРѕРєР°Р·С‹РІР°РµС‚ РїРѕСЃР»РµРґРЅРёР№ РґРµРЅСЊ СЂР°СЃС‡РµС‚Р°|
  link(onEvent1,9683022:doEvent1,[])
  link(onEvent2,5672305:doHint,[])
  link(onEvent3,4158397:doEvent1,[(569,216)(569,286)(506,286)(506,356)])
@@ -661,8 +661,8 @@ Add(ChildFormEx,2296218,210,280)
 BEGIN_SDK
   Add(EditMultiEx,3099554,21,21)
   {
-   WorkCount=#26:doShowModal=Показать форму|35:Read_Set=Чтение параметров из файла|
-   EventCount=#28:Timer_Time=Время для таймера|26:Slow_Mini=Запуск свернутым|25:URL=Адрес страницы данных|
+   WorkCount=#26:doShowModal=РџРѕРєР°Р·Р°С‚СЊ С„РѕСЂРјСѓ|35:Read_Set=Р§С‚РµРЅРёРµ РїР°СЂР°РјРµС‚СЂРѕРІ РёР· С„Р°Р№Р»Р°|
+   EventCount=#28:Timer_Time=Р’СЂРµРјСЏ РґР»СЏ С‚Р°Р№РјРµСЂР°|26:Slow_Mini=Р—Р°РїСѓСЃРє СЃРІРµСЂРЅСѓС‚С‹Рј|25:URL=РђРґСЂРµСЃ СЃС‚СЂР°РЅРёС†С‹ РґР°РЅРЅС‹С…|
    Width=489
    Height=403
    link(doShowModal,15652966:doShowModal,[(126,27)(126,69)])
@@ -696,7 +696,7 @@ BEGIN_SDK
   }
   Add(ChildGroupBox,10810665,301,189)
   {
-   @Hint=#20:Параметры обновления|
+   @Hint=#20:РџР°СЂР°РјРµС‚СЂС‹ РѕР±РЅРѕРІР»РµРЅРёСЏ|
    link(onEvent1,3099554:Timer_Time,[(362,195)(362,27)])
    link(onEvent2,3099554:URL,[(425,202)(425,41)])
   }
@@ -726,7 +726,7 @@ BEGIN_SDK
      Top=65
      Width=240
      TabOrder=9
-     Hint="Это поле отключено и не используется"
+     Hint="Р­С‚Рѕ РїРѕР»Рµ РѕС‚РєР»СЋС‡РµРЅРѕ Рё РЅРµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ"
      Text="https://center.vodafone.de/vfcenter/index.html"
      ReadOnly=0
      Point(doSelectAll)
@@ -1106,25 +1106,25 @@ Add(Hub,11625284,315,245)
 }
 Add(LineBreak,1451268,0,49)
 {
- Caption="Закрытие программы из меню"
+ Caption="Р—Р°РєСЂС‹С‚РёРµ РїСЂРѕРіСЂР°РјРјС‹ РёР· РјРµРЅСЋ"
  link(Out,8205278:doEvent2,[(188,55)(188,27)])
  Primary=[12422480,770,336]
 }
 Add(LineBreak,14465650,420,315)
 {
- Caption="Показать форму"
+ Caption="РџРѕРєР°Р·Р°С‚СЊ С„РѕСЂРјСѓ"
  link(Out,10433839:doShow,[])
  Primary=[13562553,350,42]
 }
 Add(LineBreak,2175883,49,308)
 {
- Caption="Показать настройки"
+ Caption="РџРѕРєР°Р·Р°С‚СЊ РЅР°СЃС‚СЂРѕР№РєРё"
  link(Out,4532465:doEvent2,[(180,314)(180,304)(128,304)(128,293)])
  Primary=[8444411,721,63]
 }
 Add(LineBreak,3876558,420,336)
 {
- Caption="Иконка в трей"
+ Caption="РРєРѕРЅРєР° РІ С‚СЂРµР№"
  link(Out,10433839:doAddTrayIcon,[])
  Primary=[7663049,-329,-231]
 }
@@ -1138,19 +1138,19 @@ Add(LineBreak,15197167,728,147)
 }
 Add(LineBreak,1824183,665,14)
 {
- Caption="Обновление данных"
+ Caption="РћР±РЅРѕРІР»РµРЅРёРµ РґР°РЅРЅС‹С…"
  link(Out,4504983:doLoadString,[(811,20)(811,34)])
  Primary=[7532375,-322,231]
 }
 Add(LineBreak,7823190,56,329)
 {
- Caption="Чтение параметров"
+ Caption="Р§С‚РµРЅРёРµ РїР°СЂР°РјРµС‚СЂРѕРІ"
  link(Out,2296218:Read_Set,[(194,335)(194,293)])
  Primary=[6565397,35,-161]
 }
 Add(LineBreak,3470068,63,70)
 {
- Caption="Запуск свернутым"
+ Caption="Р—Р°РїСѓСЃРє СЃРІРµСЂРЅСѓС‚С‹Рј"
  link(Out,2953706:doVisible,[(191,76)(191,41)])
  Primary=[5511318,203,238]
 }
@@ -1240,7 +1240,7 @@ Add(ButtonRush,7977730,84,476)
 }
 Add(LineBreak,9427762,49,357)
 {
- Caption="Проверка наличия файла конфигурации"
+ Caption="РџСЂРѕРІРµСЂРєР° РЅР°Р»РёС‡РёСЏ С„Р°Р№Р»Р° РєРѕРЅС„РёРіСѓСЂР°С†РёРё"
  link(Out,1750725:CheckConfig,[])
  Primary=[393622,49,-231]
 }
@@ -1254,7 +1254,7 @@ Add(Label,12709714,231,560)
 }
 Add(LineBreak,13448304,231,602)
 {
- Caption="Имя балуна"
+ Caption="РРјСЏ Р±Р°Р»СѓРЅР°"
  Type=1
  link(Data,12709714:Caption,[])
  Primary=[14945902,322,-336]
@@ -1266,7 +1266,7 @@ Add(GetDataEx,4088093,553,63)
 }
 Add(LineBreak,10194170,441,91)
 {
- Caption="Таймер"
+ Caption="РўР°Р№РјРµСЂ"
  link(Out,9555336:doWork2,[])
  Primary=[16513508,-14,70]
 }
@@ -1288,25 +1288,25 @@ Add(ButtonRush,267709,476,385)
  ColorTo=-16777201
  GradientStyle=1
  BorderWidth=0
- Caption="•"
+ Caption="вЂў"
  Glyphs=[]
  MakeTrans(Hint)
  link(onClick,10433839:doHide,[(529,391)(529,328)])
 }
 Add(InfoTip,10794610,49,532)
 {
- Info=#18:Скрытые компоненты|
+ Info=#18:РЎРєСЂС‹С‚С‹Рµ РєРѕРјРїРѕРЅРµРЅС‚С‹|
  Width=344
  Height=137
 }
 Add(MultiElementEx,1750725,280,357)
 {
- @Hint=#42:Проверка конфигурации и создание стартовой|
+ @Hint=#42:РџСЂРѕРІРµСЂРєР° РєРѕРЅС„РёРіСѓСЂР°С†РёРё Рё СЃРѕР·РґР°РЅРёРµ СЃС‚Р°СЂС‚РѕРІРѕР№|
 }
 BEGIN_SDK
   Add(EditMultiEx,675904,21,21)
   {
-   WorkCount=#54:CheckConfig=Проверка конфигурации и создание стартовой|
+   WorkCount=#54:CheckConfig=РџСЂРѕРІРµСЂРєР° РєРѕРЅС„РёРіСѓСЂР°С†РёРё Рё СЃРѕР·РґР°РЅРёРµ СЃС‚Р°СЂС‚РѕРІРѕР№|
    Width=461
    Height=347
    link(CheckConfig,8982665:doExistsKey,[(193,27)(193,69)])
@@ -1377,9 +1377,9 @@ Add(MultiElementEx,4504983,840,28)
 BEGIN_SDK
   Add(EditMultiEx,1901055,21,21)
   {
-   WorkCount=#29:doLoadString=Запрос на сервер|29:Url=Адрес сервера для запроса|
+   WorkCount=#29:doLoadString=Р—Р°РїСЂРѕСЃ РЅР° СЃРµСЂРІРµСЂ|29:Url=РђРґСЂРµСЃ СЃРµСЂРІРµСЂР° РґР»СЏ Р·Р°РїСЂРѕСЃР°|
    EventCount=#8:onEvent2|9:onEvent21|
-   VarCount=#29:Text=Строка для поиска данных|40:URL_Adress=Адрес для открытия статистики|
+   VarCount=#29:Text=РЎС‚СЂРѕРєР° РґР»СЏ РїРѕРёСЃРєР° РґР°РЅРЅС‹С…|40:URL_Adress=РђРґСЂРµСЃ РґР»СЏ РѕС‚РєСЂС‹С‚РёСЏ СЃС‚Р°С‚РёСЃС‚РёРєРё|
    Width=531
    Height=298
    link(doLoadString,4150812:doEvent1,[(140,27)(140,223)])
@@ -1544,13 +1544,13 @@ Add(LineBreak,8944818,490,553)
 }
 Add(LineBreak,10286663,28,210)
 {
- Caption="Остановка таймера"
+ Caption="РћСЃС‚Р°РЅРѕРІРєР° С‚Р°Р№РјРµСЂР°"
  link(Out,11815264:doStop,[(205,216)(205,279)])
  Primary=[8997905,798,294]
 }
 Add(ChildForm,15845089,189,476)
 {
- @Hint=#16:Окно О программе|
+ @Hint=#16:РћРєРЅРѕ Рћ РїСЂРѕРіСЂР°РјРјРµ|
  link(onEvent1,2710859:doVisible_Update,[(233,482)(233,458)(177,458)(177,433)])
  link(Data1,5936897:Var2,[(195,448)(181,448)])
 }
@@ -1621,7 +1621,7 @@ Add(Label,10617824,322,553)
 }
 Add(LineBreak,7541285,266,623)
 {
- Caption="Данные не получены"
+ Caption="Р”Р°РЅРЅС‹Рµ РЅРµ РїРѕР»СѓС‡РµРЅС‹"
  Type=1
  link(Data,10617824:Caption,[(272,599)(328,599)])
  Primary=[2845219,322,-98]
@@ -1633,8 +1633,8 @@ Add(ChildFormEx,2710859,189,427)
 BEGIN_SDK
   Add(EditMultiEx,15244672,21,21)
   {
-   WorkCount=#41:doVisible_Update=Показать окно обновления|42:Run_CheckUpdate=Запуск проверки обновлений|
-   DataCount=#32:Version=Текущая версия программы|
+   WorkCount=#41:doVisible_Update=РџРѕРєР°Р·Р°С‚СЊ РѕРєРЅРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ|42:Run_CheckUpdate=Р—Р°РїСѓСЃРє РїСЂРѕРІРµСЂРєРё РѕР±РЅРѕРІР»РµРЅРёР№|
+   DataCount=#32:Version=РўРµРєСѓС‰Р°СЏ РІРµСЂСЃРёСЏ РїСЂРѕРіСЂР°РјРјС‹|
    Width=832
    Height=452
    link(doVisible_Update,1221221:doEvent2,[(63,27)(63,202)])
@@ -1694,7 +1694,7 @@ BEGIN_SDK
   Add(FormatStr,4675140,791,112)
   {
    DataCount=1
-   Mask="taskkill /f /im %1\r\ndel /q %1\r\nren latest_version.exe %1\r\nstart %1\r\ndel %0 ›nul"
+   Mask="taskkill /f /im %1\r\ndel /q %1\r\nren latest_version.exe %1\r\nstart %1\r\ndel %0 вЂєnul"
    link(onFString,11467107:doText,[(835,118)(835,156)(730,156)(730,195)])
   }
   Add(Application,11616495,742,63)
@@ -1916,7 +1916,7 @@ BEGIN_SDK
 END_SDK
 Add(LineBreak,16442927,14,434)
 {
- Caption="Проверка обновлений"
+ Caption="РџСЂРѕРІРµСЂРєР° РѕР±РЅРѕРІР»РµРЅРёР№"
  link(Out,2710859:Run_CheckUpdate,[])
  Primary=[491590,91,-287]
 }
@@ -1927,7 +1927,7 @@ Add(GetDataEx,5936897,175,406)
 }
 Add(LineBreak,10632055,63,644)
 {
- Caption="Версия"
+ Caption="Р’РµСЂСЃРёСЏ"
  Type=1
  link(Data,1658042:Text,[])
  Primary=[5505180,112,-259]
@@ -1952,13 +1952,13 @@ Add(Label,12749161,637,238)
 Add(Translator,14686336,144,606)
 {
  Lang="Russian"
- LangWords=['Close'="Закрыть",'Settings'="Параметры",'Manual update'="Ручное обновление",'About'="О программе",'The program is already running'="Программа уже выполняется",'Start Error'="Повторный запуск",'Remaining'="Осталось",'Remaining '="Осталось ",'% traffic left'="% трафика",'of '="из ",'S'="П",'U'="O",'Language'="Язык",'Requires restart'="Требуется перезапуск",'Apply'="Применить",'Autostart on system startup'="Автозапуск при старте системы",'Run rolled up in the system tray'="Запускать свернутым в системный трей",'Address of the page with statistics'="Адрес страницы со статистикой",'Update interval'="Интервал обновления данных",'Update options'="Параметры обновления",'Double-clicking will take you to the statistics page'="Двойной клик откроет страницу статистики",'Last settlement day '="Последний расчетный день ",'Turn into a tray'="Свернуть в трей",'Used from %1%2'="Израсходовано с %1%2",'Remaining %1 of %2 %3'="Осталось %1 из %2 %3",'Used %1 %2'="Израсходовано %1 %2",'Traffic''s over! (%1)'="Трафик закончился! (%1)",'The traffic limit is almost exhausted!'="Лимит трафика почти исчерпан!",'No;data;received!;0;No data received!'="Данные;не;получены!;0;Данные не получены!",'Click to check for updates'="Нажмите для проверки обновлений",'Checking for updates'="Проверка обновлений",'Check'="Проверить",'Update'="Обновить",'A new version of the program is available!'="Доступна новая версия программы!",'You have the latest version of the software, no update is required.'="У вас последняя версия программ",' обновление не требуется.",''Check error md5'''="Ошибка проверки md5",'Checking the downloaded file ended in an error. The checksum md5 does not match. Upload a file manually?'="Проверка скачанного файла завершилась ошибкой. Контрольной сумма md5 не соответствует. Загрузить файл обновления вручную?",'Perform a check...'="Выполните проверку...",'For a successful update, run the program from an administrator'="Для успешного обновления запустите программу от администратора",'Double-click to manually download the latest version'="Двойной клик для ручной загрузки последней версии"]
+ LangWords=['Close'="Р—Р°РєСЂС‹С‚СЊ",'Settings'="РџР°СЂР°РјРµС‚СЂС‹",'Manual update'="Р СѓС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ",'About'="Рћ РїСЂРѕРіСЂР°РјРјРµ",'The program is already running'="РџСЂРѕРіСЂР°РјРјР° СѓР¶Рµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ",'Start Error'="РџРѕРІС‚РѕСЂРЅС‹Р№ Р·Р°РїСѓСЃРє",'Remaining'="РћСЃС‚Р°Р»РѕСЃСЊ",'Remaining '="РћСЃС‚Р°Р»РѕСЃСЊ ",'% traffic left'="% С‚СЂР°С„РёРєР°",'of '="РёР· ",'S'="Рџ",'U'="O",'Language'="РЇР·С‹Рє",'Requires restart'="РўСЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµР·Р°РїСѓСЃРє",'Apply'="РџСЂРёРјРµРЅРёС‚СЊ",'Autostart on system startup'="РђРІС‚РѕР·Р°РїСѓСЃРє РїСЂРё СЃС‚Р°СЂС‚Рµ СЃРёСЃС‚РµРјС‹",'Run rolled up in the system tray'="Р—Р°РїСѓСЃРєР°С‚СЊ СЃРІРµСЂРЅСѓС‚С‹Рј РІ СЃРёСЃС‚РµРјРЅС‹Р№ С‚СЂРµР№",'Address of the page with statistics'="РђРґСЂРµСЃ СЃС‚СЂР°РЅРёС†С‹ СЃРѕ СЃС‚Р°С‚РёСЃС‚РёРєРѕР№",'Update interval'="РРЅС‚РµСЂРІР°Р» РѕР±РЅРѕРІР»РµРЅРёСЏ РґР°РЅРЅС‹С…",'Update options'="РџР°СЂР°РјРµС‚СЂС‹ РѕР±РЅРѕРІР»РµРЅРёСЏ",'Double-clicking will take you to the statistics page'="Р”РІРѕР№РЅРѕР№ РєР»РёРє РѕС‚РєСЂРѕРµС‚ СЃС‚СЂР°РЅРёС†Сѓ СЃС‚Р°С‚РёСЃС‚РёРєРё",'Last settlement day '="РџРѕСЃР»РµРґРЅРёР№ СЂР°СЃС‡РµС‚РЅС‹Р№ РґРµРЅСЊ ",'Turn into a tray'="РЎРІРµСЂРЅСѓС‚СЊ РІ С‚СЂРµР№",'Used from %1%2'="РР·СЂР°СЃС…РѕРґРѕРІР°РЅРѕ СЃ %1%2",'Remaining %1 of %2 %3'="РћСЃС‚Р°Р»РѕСЃСЊ %1 РёР· %2 %3",'Used %1 %2'="РР·СЂР°СЃС…РѕРґРѕРІР°РЅРѕ %1 %2",'Traffic''s over! (%1)'="РўСЂР°С„РёРє Р·Р°РєРѕРЅС‡РёР»СЃСЏ! (%1)",'The traffic limit is almost exhausted!'="Р›РёРјРёС‚ С‚СЂР°С„РёРєР° РїРѕС‡С‚Рё РёСЃС‡РµСЂРїР°РЅ!",'No;data;received!;0;No data received!'="Р”Р°РЅРЅС‹Рµ;РЅРµ;РїРѕР»СѓС‡РµРЅС‹!;0;Р”Р°РЅРЅС‹Рµ РЅРµ РїРѕР»СѓС‡РµРЅС‹!",'Click to check for updates'="РќР°Р¶РјРёС‚Рµ РґР»СЏ РїСЂРѕРІРµСЂРєРё РѕР±РЅРѕРІР»РµРЅРёР№",'Checking for updates'="РџСЂРѕРІРµСЂРєР° РѕР±РЅРѕРІР»РµРЅРёР№",'Check'="РџСЂРѕРІРµСЂРёС‚СЊ",'Update'="РћР±РЅРѕРІРёС‚СЊ",'A new version of the program is available!'="Р”РѕСЃС‚СѓРїРЅР° РЅРѕРІР°СЏ РІРµСЂСЃРёСЏ РїСЂРѕРіСЂР°РјРјС‹!",'You have the latest version of the software, no update is required.'="РЈ РІР°СЃ РїРѕСЃР»РµРґРЅСЏСЏ РІРµСЂСЃРёСЏ РїСЂРѕРіСЂР°РјРј",' РѕР±РЅРѕРІР»РµРЅРёРµ РЅРµ С‚СЂРµР±СѓРµС‚СЃСЏ.",''Check error md5'''="РћС€РёР±РєР° РїСЂРѕРІРµСЂРєРё md5",'Checking the downloaded file ended in an error. The checksum md5 does not match. Upload a file manually?'="РџСЂРѕРІРµСЂРєР° СЃРєР°С‡Р°РЅРЅРѕРіРѕ С„Р°Р№Р»Р° Р·Р°РІРµСЂС€РёР»Р°СЃСЊ РѕС€РёР±РєРѕР№. РљРѕРЅС‚СЂРѕР»СЊРЅРѕР№ СЃСѓРјРјР° md5 РЅРµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚. Р—Р°РіСЂСѓР·РёС‚СЊ С„Р°Р№Р» РѕР±РЅРѕРІР»РµРЅРёСЏ РІСЂСѓС‡РЅСѓСЋ?",'Perform a check...'="Р’С‹РїРѕР»РЅРёС‚Рµ РїСЂРѕРІРµСЂРєСѓ...",'For a successful update, run the program from an administrator'="Р”Р»СЏ СѓСЃРїРµС€РЅРѕРіРѕ РѕР±РЅРѕРІР»РµРЅРёСЏ Р·Р°РїСѓСЃС‚РёС‚Рµ РїСЂРѕРіСЂР°РјРјСѓ РѕС‚ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°",'Double-click to manually download the latest version'="Р”РІРѕР№РЅРѕР№ РєР»РёРє РґР»СЏ СЂСѓС‡РЅРѕР№ Р·Р°РіСЂСѓР·РєРё РїРѕСЃР»РµРґРЅРµР№ РІРµСЂСЃРёРё"]
  Section="SOFTWARE\VodafoneCheckTraffic"
  Value="Lang"
 }
 Add(Translator,8982576,140,553)
 {
- LangWords=['Закрыть'="Schlissen",'Настройки'="Einstellungen",'Ручное обновление'="Manuelle Aktualisierung",'О программе'="Informationen zum Programm",'Программа уже выполняется'="Das Programm lauft bereits",'Повторный запуск'="Neu starten",'Осталось'="Noch",'Осталось '="Es gibt noch ",'% трафика'="% Verkehr",'из '="von  ",'H'="E",'O'="A",'Параметры'="Einstellungen",'Язык'="Sprache",'Требуется перезапуск'="Erfordert einen Neustart",'Применить'="Bewerben",'Автозапуск при старте системы'="Autostart beim Systemstart",'Запускать свернутым в системный трей'="Im Systemtray aufgerollt ausfuhren",'Адрес страницы со статистикой'="Adresse der Seite mit den Statistiken",'Обновлять данные каждые'="Aktualisierung alle",'Параметры обновления'="Update-Optionen",'Браузер'="Browser",'Двойной клик откроет страницу статистики'="Durch Doppelklicken gelangen Sie zur Statistikseite.",'Последний расчетный день '="Letzter Abrechnungstag ",'Свернуть в трей'="In den tray minimieren",'Израсходовано с %1%2 %3'="Benutzt seit %1%2 %3",'Осталось %1 из %2 %3'="Es gibt noch %1 von %2 %3",'Израсходовано %1 %2'="Benutzt %1 %2",'Заканчивается трафик! (%1)'="Der Verkehr ist vorbei! (%1)",'Лимит трафика почти исчерпан!'="Das Verkehrslimit ist fast ausgeschopft!",'Данные;не;получены!;0;Данные не получены!'="Keine;Daten;erhalten!;0;Keine Daten erhalten!"]
+ LangWords=['Р—Р°РєСЂС‹С‚СЊ'="Schlissen",'РќР°СЃС‚СЂРѕР№РєРё'="Einstellungen",'Р СѓС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ'="Manuelle Aktualisierung",'Рћ РїСЂРѕРіСЂР°РјРјРµ'="Informationen zum Programm",'РџСЂРѕРіСЂР°РјРјР° СѓР¶Рµ РІС‹РїРѕР»РЅСЏРµС‚СЃСЏ'="Das Programm lauft bereits",'РџРѕРІС‚РѕСЂРЅС‹Р№ Р·Р°РїСѓСЃРє'="Neu starten",'РћСЃС‚Р°Р»РѕСЃСЊ'="Noch",'РћСЃС‚Р°Р»РѕСЃСЊ '="Es gibt noch ",'% С‚СЂР°С„РёРєР°'="% Verkehr",'РёР· '="von  ",'H'="E",'O'="A",'РџР°СЂР°РјРµС‚СЂС‹'="Einstellungen",'РЇР·С‹Рє'="Sprache",'РўСЂРµР±СѓРµС‚СЃСЏ РїРµСЂРµР·Р°РїСѓСЃРє'="Erfordert einen Neustart",'РџСЂРёРјРµРЅРёС‚СЊ'="Bewerben",'РђРІС‚РѕР·Р°РїСѓСЃРє РїСЂРё СЃС‚Р°СЂС‚Рµ СЃРёСЃС‚РµРјС‹'="Autostart beim Systemstart",'Р—Р°РїСѓСЃРєР°С‚СЊ СЃРІРµСЂРЅСѓС‚С‹Рј РІ СЃРёСЃС‚РµРјРЅС‹Р№ С‚СЂРµР№'="Im Systemtray aufgerollt ausfuhren",'РђРґСЂРµСЃ СЃС‚СЂР°РЅРёС†С‹ СЃРѕ СЃС‚Р°С‚РёСЃС‚РёРєРѕР№'="Adresse der Seite mit den Statistiken",'РћР±РЅРѕРІР»СЏС‚СЊ РґР°РЅРЅС‹Рµ РєР°Р¶РґС‹Рµ'="Aktualisierung alle",'РџР°СЂР°РјРµС‚СЂС‹ РѕР±РЅРѕРІР»РµРЅРёСЏ'="Update-Optionen",'Р‘СЂР°СѓР·РµСЂ'="Browser",'Р”РІРѕР№РЅРѕР№ РєР»РёРє РѕС‚РєСЂРѕРµС‚ СЃС‚СЂР°РЅРёС†Сѓ СЃС‚Р°С‚РёСЃС‚РёРєРё'="Durch Doppelklicken gelangen Sie zur Statistikseite.",'РџРѕСЃР»РµРґРЅРёР№ СЂР°СЃС‡РµС‚РЅС‹Р№ РґРµРЅСЊ '="Letzter Abrechnungstag ",'РЎРІРµСЂРЅСѓС‚СЊ РІ С‚СЂРµР№'="In den tray minimieren",'РР·СЂР°СЃС…РѕРґРѕРІР°РЅРѕ СЃ %1%2 %3'="Benutzt seit %1%2 %3",'РћСЃС‚Р°Р»РѕСЃСЊ %1 РёР· %2 %3'="Es gibt noch %1 von %2 %3",'РР·СЂР°СЃС…РѕРґРѕРІР°РЅРѕ %1 %2'="Benutzt %1 %2",'Р—Р°РєР°РЅС‡РёРІР°РµС‚СЃСЏ С‚СЂР°С„РёРє! (%1)'="Der Verkehr ist vorbei! (%1)",'Р›РёРјРёС‚ С‚СЂР°С„РёРєР° РїРѕС‡С‚Рё РёСЃС‡РµСЂРїР°РЅ!'="Das Verkehrslimit ist fast ausgeschopft!",'Р”Р°РЅРЅС‹Рµ;РЅРµ;РїРѕР»СѓС‡РµРЅС‹!;0;Р”Р°РЅРЅС‹Рµ РЅРµ РїРѕР»СѓС‡РµРЅС‹!'="Keine;Daten;erhalten!;0;Keine Daten erhalten!"]
  Section="SOFTWARE\VodafoneCheckTraffic"
  Value="Lang"
  LangsDir="/lng"
@@ -1966,7 +1966,7 @@ Add(Translator,8982576,140,553)
 Add(Translator,14615643,180,607)
 {
  Lang="Deutsch"
- LangWords=['Close'="Schlissen",'Settings'="Einstellungen",'Manual update'="Manuelle Aktualisierung",'About'="Informationen zum Programm",'The program is already running'="Das Programm lauft bereits",'Start Error'="Neu starten",'Remaining'="Noch",'Remaining '="Es gibt noch ",'% traffic left'="% Datenverkehr",'of '="von ",'S'="E",'U'="A",'Language'="Sprache",'Requires restart'="Erfordert einen Neustart",'Apply'="Bewerben",'Autostart on system startup'="Autostart beim Systemstart",'Run rolled up in the system tray'="Im Systemtray aufgerollt ausfuhren",'Address of the page with statistics'="Adresse der Seite mit den Statistiken",'Update interval'="Aktualisierungsintervall",'Update options'="Aktualisierungsoptionen",'Double-clicking will take you to the statistics page'="Durch Doppelklicken gelangen Sie zur Statistikseite.",'Last settlement day '="Letzter Abrechnungstag ",'Turn into a tray'="In den tray minimieren",'Used from %1%2'="Benutzt seit %1%2",'Remaining %1 of %2 %3'="Es gibt noch %1 von %2 %3",'Used %1 %2'="Benutzt %1 %2",'Traffic''s over! (%1)'="Der Datenverkehr ist zu Ende! (%1)",'The traffic limit is almost exhausted!'="Das Datenverkehrslimit ist fast ausgeschopft!",'No;data;received!;0;No data received!'="Keine;Daten;erhalten!;0;Keine Daten erhalten!",'Click to check for updates'="Klicken Sie hie",' um nach Updates zu suchen",''Checking for updates'''="Auf Aktualisierungen prГјfen",'Check'="Prufen",'Update'="Aktualisierung",'A new version of the program is available!'="Eine neue Version des Programms ist verfugbar!",'You have the latest version of the software, no update is required.'="Sie haben die neueste Version der Softwar",' eine Aktualisierung ist nicht erforderlich.",''Check error md5'''="Fehler prufen md5",'Checking the downloaded file ended in an error. The checksum md5 does not match. Upload a file manually?'="Die Uberprufung der heruntergeladenen Datei endete mit einem Fehler. Die Prufsumme md5 stimmt nicht uberein. Eine Datei manuell hochladen?",'Perform a check...'="Fuhren Sie eine Uberprufung durch...",'For a successful update, run the program from an administrator'="Fur eine erfolgreiche Aktualisierung fuhren Sie das Programm von einem Administrator aus",'Double-click to manually download the latest version'="Doppelklicken Sie zum manuellen Herunterladen der neuesten Version"]
+ LangWords=['Close'="Schlissen",'Settings'="Einstellungen",'Manual update'="Manuelle Aktualisierung",'About'="Informationen zum Programm",'The program is already running'="Das Programm lauft bereits",'Start Error'="Neu starten",'Remaining'="Noch",'Remaining '="Es gibt noch ",'% traffic left'="% Datenverkehr",'of '="von ",'S'="E",'U'="A",'Language'="Sprache",'Requires restart'="Erfordert einen Neustart",'Apply'="Bewerben",'Autostart on system startup'="Autostart beim Systemstart",'Run rolled up in the system tray'="Im Systemtray aufgerollt ausfuhren",'Address of the page with statistics'="Adresse der Seite mit den Statistiken",'Update interval'="Aktualisierungsintervall",'Update options'="Aktualisierungsoptionen",'Double-clicking will take you to the statistics page'="Durch Doppelklicken gelangen Sie zur Statistikseite.",'Last settlement day '="Letzter Abrechnungstag ",'Turn into a tray'="In den tray minimieren",'Used from %1%2'="Benutzt seit %1%2",'Remaining %1 of %2 %3'="Es gibt noch %1 von %2 %3",'Used %1 %2'="Benutzt %1 %2",'Traffic''s over! (%1)'="Der Datenverkehr ist zu Ende! (%1)",'The traffic limit is almost exhausted!'="Das Datenverkehrslimit ist fast ausgeschopft!",'No;data;received!;0;No data received!'="Keine;Daten;erhalten!;0;Keine Daten erhalten!",'Click to check for updates'="Klicken Sie hie",' um nach Updates zu suchen",''Checking for updates'''="Auf Aktualisierungen prР“Сfen",'Check'="Prufen",'Update'="Aktualisierung",'A new version of the program is available!'="Eine neue Version des Programms ist verfugbar!",'You have the latest version of the software, no update is required.'="Sie haben die neueste Version der Softwar",' eine Aktualisierung ist nicht erforderlich.",''Check error md5'''="Fehler prufen md5",'Checking the downloaded file ended in an error. The checksum md5 does not match. Upload a file manually?'="Die Uberprufung der heruntergeladenen Datei endete mit einem Fehler. Die Prufsumme md5 stimmt nicht uberein. Eine Datei manuell hochladen?",'Perform a check...'="Fuhren Sie eine Uberprufung durch...",'For a successful update, run the program from an administrator'="Fur eine erfolgreiche Aktualisierung fuhren Sie das Programm von einem Administrator aus",'Double-click to manually download the latest version'="Doppelklicken Sie zum manuellen Herunterladen der neuesten Version"]
  Section="SOFTWARE\VodafoneCheckTraffic"
  Value="Lang"
 }
